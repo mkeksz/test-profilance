@@ -1,13 +1,95 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.button {
+  border: unset;
+  background-color: #5793dd;
+  color: #fff;
+  border-radius: 4px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.input {
+  border-radius: 4px;
+  padding: 5px 10px;
+  border: 2px solid #c2c2c2;
+}
+.input:focus {
+  outline: unset;
+}
+
+.nav {
+  padding: 20px;
+  text-align: center;
+}
+.nav__link {
+  padding: 0 20px;
+  text-transform: uppercase;
+  text-decoration: unset;
+  color: cornflowerblue;
+  cursor: pointer;
+}
+
+.popup-auth {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+.popup-auth__show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.window {
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 20px;
+  position: relative;
+  width: 280px;
+}
+.window__title {
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+.form > form {
+  display: flex;
+  flex-direction: column;
+}
+.form input,
+.form small {
+  margin: 5px 0;
+}
+.form__buttons {
+  display: flex;
+  margin-top: 20px;
+  place-content: space-between;
+}
+.form__error {
+  color: crimson;
+  text-align: center;
+}
+
+.main-page {
+  text-align: center;
 }
