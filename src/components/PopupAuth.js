@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { turnPopup } from '../store/actions/appActions'
+import { fetchUser } from '../store/actions/userActions'
 
 export const PopupAuth = () => {
   const dispatch = useDispatch()
@@ -39,6 +40,7 @@ export const PopupAuth = () => {
       setShowError(true)
       return
     }
+    dispatch(fetchUser({ name: user.name, isAdmin: user.isAdmin }))
     dispatch(turnPopup())
   }
   const onClickClose = () => {
