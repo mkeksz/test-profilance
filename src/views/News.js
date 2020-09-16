@@ -14,8 +14,7 @@ export const News = () => {
   const articles = textSearch ? searchNews : news
 
   useEffect(() => {
-    // let filteredNews = storeNews.slice(0, 100)
-    let filteredNews = storeNews
+    let filteredNews = storeNews.slice(0, 100)
 
     if (user && !user.isAdmin)
       filteredNews = filteredNews.filter((i) => i.approved || i.authorId === user.id)
