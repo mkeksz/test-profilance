@@ -1,16 +1,36 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteNews, editNews } from '../store/actions/newsActions'
 
-export const Article = ({ title, text }) => {
+export const Article = ({ article }) => {
+  const dispatch = useDispatch()
+
+  const user = useSelector((state) => state.user.user)
+
+  const onClickApprove = () => dispatch(editNews({ ...article, approved: true }))
+  const onClickDelete = () => dispatch(deleteNews(article.id))
+
   return (
     <article className="article">
-      <h2>{title}</h2>
-      <p>{text}</p>
+      <h2>{article.title}</h2>
+      <p>{article.text}</p>
+      {user && user.isAdmin && (
+        <div>
+          {!article.approved && (
+            <button onClick={() => onClickApprove()} className="button">
+              Принять
+            </button>
+          )}
+          <button onClick={() => onClickDelete()} className="button">
+            Удалить
+          </button>
+        </div>
+      )}
     </article>
   )
 }
 
 Article.propTypes = {
-  title: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  article: PropTypes.object.isRequired,
 }

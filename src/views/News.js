@@ -32,7 +32,7 @@ export const News = () => {
           </div>
         )}
         <div className="articles">
-          {news && news.map((i) => <Article key={i.id} title={i.title} text={i.text} />)}
+          {news && news.map((i) => <Article key={i.id} article={i} />)}
         </div>
       </div>
     </>

@@ -25,10 +25,12 @@ export const PopupArticle = () => {
     dispatch(
       addNews({ title: title.trim(), text: text.trim(), approved: false, authorId: user.id }),
     )
-    dispatch(turnPopupArticle())
+    onClickClose()
   }
   const onClickClose = () => {
     setShowError(false)
+    setTitle('')
+    setText('')
     dispatch(turnPopupArticle())
   }
 

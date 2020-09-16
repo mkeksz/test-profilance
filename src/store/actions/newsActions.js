@@ -1,4 +1,4 @@
-import { ADD_NEWS, FETCH_NEWS } from '../types'
+import { ADD_NEWS, DELETE_NEWS, EDIT_NEWS, FETCH_NEWS } from '../types'
 
 export function fetchNews() {
   const news = [
@@ -29,4 +29,10 @@ export function fetchNews() {
 
 export function addNews(article) {
   return { type: ADD_NEWS, payload: article }
+}
+export function deleteNews(articleId) {
+  return { type: DELETE_NEWS, payload: articleId }
+}
+export function editNews(article) {
+  return { type: EDIT_NEWS, payload: article }
 }

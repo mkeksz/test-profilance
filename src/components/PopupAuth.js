@@ -40,10 +40,12 @@ export const PopupAuth = () => {
       return
     }
     dispatch(fetchUser(user))
-    dispatch(turnPopupAuth())
+    onClickClose()
   }
   const onClickClose = () => {
     setShowError(false)
+    setLogin('')
+    setPassword('')
     dispatch(turnPopupAuth())
   }
 
