@@ -11,16 +11,16 @@ import { PopupArticle } from './components/PopupArticle'
 const App = () => {
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    dispatch(fetchNews())
-  }, [dispatch])
+  const public_url = process.env.PUBLIC_URL
+
+  useEffect(() => dispatch(fetchNews()), [dispatch])
 
   return (
     <>
       <Navbar />
       <Switch>
-        <Route path="/" exact component={Main} />
-        <Route path="/news" exact component={News} />
+        <Route path={public_url + '/'} exact component={Main} />
+        <Route path={public_url + '/news'} component={News} />
       </Switch>
       <PopupAuth />
       <PopupArticle />
