@@ -23,9 +23,9 @@ export const News = () => {
 
   return (
     <>
-      <div className="news-page">
+      <div className="page">
         {user && (
-          <div className="news-page__buttons">
+          <div className="page__buttons">
             <button onClick={() => onClickNewArticle()} className="button">
               Добавить новость
             </button>

@@ -7,6 +7,7 @@ export const PopupArticle = () => {
   const dispatch = useDispatch()
 
   const [showPopup, user] = useSelector((state) => [state.app.showPopupArticle, state.user.user])
+
   const [showError, setShowError] = useState(false)
   const [title, setTitle] = useState('')
   const [text, setText] = useState('')

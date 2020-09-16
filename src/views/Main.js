@@ -6,7 +6,7 @@ export const Main = () => {
 
   return (
     <>
-      <div className="main-page">
+      <div className="page">
         <h2>Привет, {user ? user.login : 'Гость'}</h2>
       </div>
     </>
