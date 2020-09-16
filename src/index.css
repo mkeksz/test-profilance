@@ -30,6 +30,10 @@ code {
   outline: unset;
 }
 
+.search {
+  margin: 10px;
+}
+
 .nav {
   padding: 20px;
   text-align: center;

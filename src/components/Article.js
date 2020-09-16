@@ -15,6 +15,7 @@ export const Article = ({ article }) => {
     <article className="article">
       <h2>{article.title}</h2>
       <p>{article.text}</p>
+      <small>Создано {article.date.toLocaleDateString()}</small>
       {user && user.isAdmin && (
         <div>
           {!article.approved && (

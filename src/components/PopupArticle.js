@@ -24,7 +24,13 @@ export const PopupArticle = () => {
       return
     }
     dispatch(
-      addNews({ title: title.trim(), text: text.trim(), approved: false, authorId: user.id }),
+      addNews({
+        title: title.trim(),
+        text: text.trim(),
+        approved: false,
+        authorId: user.id,
+        date: new Date(),
+      }),
     )
     onClickClose()
   }

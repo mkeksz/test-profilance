@@ -1,7 +1,7 @@
 import { ADD_NEWS, DELETE_NEWS, EDIT_NEWS, FETCH_NEWS } from '../types'
 
 const initialState = {
-  news: null,
+  news: [],
 }
 
 const newsReducer = (state = initialState, action) => {

@@ -8,6 +8,7 @@ export function fetchNews() {
       text: 'Новость пользователя (не принята)',
       approved: false,
       authorId: 2,
+      date: new Date(2020, 8, 15),
     },
     {
       id: 1,
@@ -15,6 +16,7 @@ export function fetchNews() {
       text: 'Новость админа',
       approved: true,
       authorId: 1,
+      date: new Date(2020, 8, 14),
     },
     {
       id: 2,
@@ -22,6 +24,7 @@ export function fetchNews() {
       text: 'Новость пользователя',
       approved: true,
       authorId: 2,
+      date: new Date(2020, 8, 10),
     },
   ]
   return { type: FETCH_NEWS, payload: news }
