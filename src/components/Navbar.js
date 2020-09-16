@@ -9,12 +9,14 @@ export const Navbar = () => {
 
   const user = useSelector((state) => state.user.user)
 
+  const public_url = process.env.PUBLIC_URL
+
   return (
     <nav className="nav">
-      <Link className="nav__link" to="/">
+      <Link className="nav__link" to={public_url + '/'}>
         Главная
       </Link>
-      <Link className="nav__link" to="/news">
+      <Link className="nav__link" to={public_url + '/news'}>
         Новости
       </Link>
       {user ? (

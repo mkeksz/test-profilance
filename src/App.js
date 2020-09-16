@@ -13,7 +13,9 @@ const App = () => {
 
   const public_url = process.env.PUBLIC_URL
 
-  useEffect(() => dispatch(fetchNews()), [dispatch])
+  useEffect(() => {
+    dispatch(fetchNews())
+  }, [dispatch])
 
   return (
     <>
