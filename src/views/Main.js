@@ -7,7 +7,7 @@ export const Main = () => {
   return (
     <>
       <div className="main-page">
-        <h2>Привет, {user ? user.name : 'Гость'}</h2>
+        <h2>Привет, {user ? user.login : 'Гость'}</h2>
       </div>
     </>
   )

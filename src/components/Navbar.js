@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { turnPopup } from '../store/actions/appActions'
+import { turnPopupAuth } from '../store/actions/appActions'
 import { fetchUser } from '../store/actions/userActions'
 
 export const Navbar = () => {
@@ -22,7 +22,7 @@ export const Navbar = () => {
           Выйти
         </span>
       ) : (
-        <span onClick={() => dispatch(turnPopup())} className="nav__link">
+        <span onClick={() => dispatch(turnPopupAuth())} className="nav__link">
           Войти
         </span>
       )}

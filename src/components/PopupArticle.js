@@ -1,83 +1,66 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { turnPopupAuth } from '../store/actions/appActions'
-import { fetchUser } from '../store/actions/userActions'
+import { turnPopupArticle } from '../store/actions/appActions'
+import { addNews } from '../store/actions/newsActions'
 
-export const PopupAuth = () => {
+export const PopupArticle = () => {
   const dispatch = useDispatch()
 
-  const showPopup = useSelector((state) => state.app.showPopupAuth)
-
+  const [showPopup, user] = useSelector((state) => [state.app.showPopupArticle, state.user.user])
   const [showError, setShowError] = useState(false)
-  const [login, setLogin] = useState('')
-  const [password, setPassword] = useState('')
-
-  const users = [
-    {
-      id: 1,
-      login: 'admin',
-      password: 'admin',
-      isAdmin: true,
-    },
-    {
-      id: 2,
-      login: 'user',
-      password: 'user',
-      isAdmin: false,
-    },
-  ]
+  const [title, setTitle] = useState('')
+  const [text, setText] = useState('')
 
   const onChangeInput = (e) => {
     const { name, value } = e.currentTarget
-    if (name === 'login') setLogin(value)
-    else if (name === 'password') setPassword(value)
+    if (name === 'title') setTitle(value)
+    else if (name === 'text') setText(value)
   }
   const onSubmit = (e) => {
     e.preventDefault()
-    const user = users.find((user) => user.login === login && user.password === password)
-    if (!user) {
+    if (!title.trim() || !text.trim()) {
       setShowError(true)
       return
     }
-    dispatch(fetchUser(user))
-    dispatch(turnPopupAuth())
+    dispatch(
+      addNews({ title: title.trim(), text: text.trim(), approved: false, authorId: user.id }),
+    )
+    dispatch(turnPopupArticle())
   }
   const onClickClose = () => {
     setShowError(false)
-    dispatch(turnPopupAuth())
+    dispatch(turnPopupArticle())
   }
 
   return (
     <div className={`popup ${showPopup && 'popup__show'}`}>
       <div className="window">
-        <h4 className="window__title">Авторизация</h4>
+        <h4 className="window__title">Новая новость</h4>
         <div className="form">
           <form onSubmit={(e) => onSubmit(e)}>
             <input
               onChange={(e) => onChangeInput(e)}
-              value={login}
-              name="login"
+              value={title}
+              name="title"
               className="input"
               type="text"
-              placeholder="Введите логин"
+              placeholder="Введите заголовок"
               maxLength="50"
             />
-            <input
+            <textarea
               onChange={(e) => onChangeInput(e)}
-              value={password}
-              name="password"
+              name="text"
+              value={text}
               className="input"
-              autoComplete="on"
-              type="password"
-              placeholder="Введите пароль"
-              maxLength="50"
+              placeholder="Введите текст новости"
+              maxLength="500"
             />
             <small className="form__error" style={{ display: showError ? 'inline' : 'none' }}>
-              Логин или пароль введен неверно!
+              Заполните все поля перед отправкой!
             </small>
             <div className="form__buttons">
               <button className="button" type="submit">
-                Войти
+                Отправить
               </button>
               <button onClick={() => onClickClose()} type="button" className="button">
                 Отмена

@@ -41,7 +41,7 @@ code {
   cursor: pointer;
 }
 
-.popup-auth {
+.popup {
   position: absolute;
   left: 0;
   top: 0;
@@ -55,7 +55,7 @@ code {
   visibility: hidden;
   transition: opacity 0.2s, visibility 0.2s;
 }
-.popup-auth__show {
+.popup__show {
   opacity: 1;
   visibility: visible;
 }
@@ -92,4 +92,27 @@ code {
 
 .main-page {
   text-align: center;
+}
+
+.news-page {
+  padding: 0 20px 20px;
+}
+.news-page__buttons {
+  padding: 20px;
+}
+
+.articles {
+  display: grid;
+  grid-row-gap: 20px;
+}
+
+.article {
+  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 4px;
+}
+.article > h2 {
+  margin: 0;
 }

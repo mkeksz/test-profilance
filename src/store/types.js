@@ -1,2 +1,5 @@
-export const TURN_POPUP = 'APP/TURN_POPUP'
+export const TURN_POPUP_AUTH = 'APP/TURN_POPUP_AUTH'
+export const TURN_POPUP_ARTICLE = 'APP/TURN_POPUP_ARTICLE'
 export const FETCH_USER = 'USER/FETCH_USER'
+export const FETCH_NEWS = 'NEWS/FETCH_NEWS'
+export const ADD_NEWS = 'NEWS/ADD_NEWS'
